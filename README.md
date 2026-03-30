@@ -1,4 +1,4 @@
-# vim-procman
+# nvim-procman
 
 Neovim plugin for [procman](https://github.com/wbbradley/procman) `.pman` files.
 
@@ -22,5 +22,5 @@ Use your preferred plugin manager. For example, with
 [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 ```lua
-{ "wbbradley/vim-procman", ft = "pman" }
+{ "wbbradley/nvim-procman", ft = "pman" }
 ```
