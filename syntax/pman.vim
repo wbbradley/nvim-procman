@@ -29,8 +29,8 @@ syn keyword pmanFieldName type default short description logs log_time format ke
 syn region pmanString start=/"/ skip=/\\\\\|\\"/ end=/"/ oneline contains=pmanEscape
 syn match pmanEscape /\\[\\\"nt]/ contained
 
-" Fenced strings (triple backtick)
-syn region pmanFencedString start=/```/ end=/```/
+" Fenced strings (triple quote)
+syn region pmanFencedString start=/"""/ end=/"""/
 
 " Numbers (defined before durations so durations take priority)
 syn match pmanNumber /\<\d\+\%(\.\d\+\)\?\>/

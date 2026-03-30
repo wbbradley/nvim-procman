@@ -10,13 +10,13 @@ if exists('*PmanIndent')
   finish
 endif
 
-" Returns 1 if line lnum is inside a fenced string block (between ``` markers).
-" Counts ``` occurrences from line 1 to lnum-1; odd count means inside.
+" Returns 1 if line lnum is inside a fenced string block (between """ markers).
+" Counts """ occurrences from line 1 to lnum-1; odd count means inside.
 function! s:InFencedBlock(lnum) abort
   let l:count = 0
   let l:i = 1
   while l:i < a:lnum
-    if getline(l:i) =~# '```'
+    if getline(l:i) =~# '"""'
       let l:count += 1
     endif
     let l:i += 1
@@ -25,17 +25,17 @@ function! s:InFencedBlock(lnum) abort
 endfunction
 
 " Find the effective previous line, skipping blank lines and fenced blocks.
-" If prev non-blank is inside a fenced block or is a closing ```, walk back
-" to the opening ``` and use that as the effective previous line.
+" If prev non-blank is inside a fenced block or is a closing """, walk back
+" to the opening """ and use that as the effective previous line.
 function! s:PrevEffectiveLine(lnum) abort
   let l:prev = prevnonblank(a:lnum - 1)
   if l:prev == 0
     return 0
   endif
-  " If the previous line is inside a fenced block or is the closing ```,
-  " walk back to the opening ``` line.
-  if s:InFencedBlock(l:prev) || getline(l:prev) =~# '```'
-    while l:prev > 0 && (s:InFencedBlock(l:prev) || getline(l:prev) =~# '```')
+  " If the previous line is inside a fenced block or is the closing """,
+  " walk back to the opening """ line.
+  if s:InFencedBlock(l:prev) || getline(l:prev) =~# '"""'
+    while l:prev > 0 && (s:InFencedBlock(l:prev) || getline(l:prev) =~# '"""')
       let l:prev -= 1
     endwhile
     let l:prev = prevnonblank(l:prev)
@@ -51,8 +51,8 @@ function! PmanIndent() abort
     return -1
   endif
 
-  " On a closing ``` line: preserve existing indent
-  if getline(l:lnum) =~# '```'
+  " On a closing """ line: preserve existing indent
+  if getline(l:lnum) =~# '"""'
     return -1
   endif
 
