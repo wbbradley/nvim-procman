@@ -7,10 +7,10 @@ syn match pmanComment /#.*$/ contains=pmanTodo
 syn keyword pmanTodo TODO FIXME XXX contained
 
 " Block keywords (top-level)
-syn keyword pmanBlockKeyword config job event
+syn keyword pmanBlockKeyword config job service event
 
 " Keywords
-syn keyword pmanKeyword env run wait watch once after on_fail spawn glob arg if for in as
+syn keyword pmanKeyword env run wait watch after on_fail spawn glob arg if for in
 syn keyword pmanKeyword http connect exists running shutdown debug log
 syn match pmanKeyword /\<contains\>/
 
@@ -23,7 +23,7 @@ syn keyword pmanType string bool
 
 " Field names
 syn keyword pmanFieldName status timeout poll retry initial_delay threshold
-syn keyword pmanFieldName type default short description logs format key var
+syn keyword pmanFieldName type default short description logs log_time format key var
 
 " Strings
 syn region pmanString start=/"/ skip=/\\\\\|\\"/ end=/"/ oneline contains=pmanEscape
