@@ -10,11 +10,11 @@ Neovim plugin for [procman](https://github.com/wbbradley/procman) `.pman` files.
 
 ## Compatibility
 
-This plugin targets **procman v0.20.0**.
+This plugin targets **procman v0.21.0**.
 
 When bumping support for a newer procman version, check the
 [CHANGELOG](https://github.com/wbbradley/procman/blob/main/CHANGELOG.md) from
-v0.20.0 onward for syntax/keyword changes.
+v0.21.0 onward for syntax/keyword changes.
 
 ## Install
 

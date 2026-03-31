@@ -11,7 +11,7 @@ syn keyword pmanBlockKeyword config job service event
 
 " Keywords
 syn keyword pmanKeyword env run wait watch after on_fail spawn glob arg if for in
-syn keyword pmanKeyword http connect exists running shutdown debug log
+syn keyword pmanKeyword http connect exists running shutdown debug log import as
 syn match pmanKeyword /\<contains\>/
 
 " Booleans and none
@@ -38,14 +38,15 @@ syn match pmanNumber /\<\d\+\%(\.\d\+\)\?\>/
 " Durations: number + suffix (5s, 500ms, 2.5m)
 syn match pmanDuration /\<\d\+\%(\.\d\+\)\?\%(ms\|[sm]\)\>/
 
-" References: @job and @job.KEY
-syn match pmanReference /@[a-zA-Z_][a-zA-Z0-9_-]*\%(\.[a-zA-Z_][a-zA-Z0-9_-]*\)\?/
+" References: @job, @job.KEY, @alias::job, @alias::job.KEY
+syn match pmanReference /@[a-zA-Z_][a-zA-Z0-9_-]*\%(::[a-zA-Z_][a-zA-Z0-9_-]*\)\?\%(\.[a-zA-Z_][a-zA-Z0-9_-]*\)\?/
 
-" Args references: args.name
+" Args references: args.name and alias::args.name
+syn match pmanArgsRef /\<[a-zA-Z_][a-zA-Z0-9_-]*::args\.[a-zA-Z_][a-zA-Z0-9_-]*/
 syn match pmanArgsRef /\<args\.[a-zA-Z_][a-zA-Z0-9_-]*/
 
 " Operators
-syn match pmanOperator /==\|!=\|<=\|>=\|<\|>\|&&\|||\|!/
+syn match pmanOperator /==\|!=\|<=\|>=\|<\|>\|&&\|||\|!\|::/
 
 " Link highlight groups
 hi def link pmanBlockKeyword Statement
