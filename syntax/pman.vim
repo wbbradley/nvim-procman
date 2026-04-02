@@ -7,7 +7,7 @@ syn match pmanComment /#.*$/ contains=pmanTodo
 syn keyword pmanTodo TODO FIXME XXX contained
 
 " Block keywords (top-level)
-syn keyword pmanBlockKeyword config job service event
+syn keyword pmanBlockKeyword config job task service event
 
 " Keywords
 syn keyword pmanKeyword env run wait watch after on_fail spawn glob arg if for in
