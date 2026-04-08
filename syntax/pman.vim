@@ -46,7 +46,12 @@ syn match pmanArgsRef /\<[a-zA-Z_][a-zA-Z0-9_-]*::args\.[a-zA-Z_][a-zA-Z0-9_-]*/
 syn match pmanArgsRef /\<args\.[a-zA-Z_][a-zA-Z0-9_-]*/
 
 " Operators
-syn match pmanOperator /==\|!=\|<=\|>=\|<\|>\|&&\|||\|!\|::/
+" Built-in directory references: module.dir, procman.dir, ns::module.dir
+syn match pmanBuiltinRef /\<module\.dir\>/
+syn match pmanBuiltinRef /\<procman\.dir\>/
+syn match pmanBuiltinRef /\<[a-zA-Z_][a-zA-Z0-9_-]*::module\.dir\>/
+
+syn match pmanOperator /==\|!=\|<=\|>=\|<\|>\|&&\|||\|!\|::\|+/
 
 " Link highlight groups
 hi def link pmanBlockKeyword Statement
@@ -62,6 +67,7 @@ hi def link pmanNumber Number
 hi def link pmanDuration Number
 hi def link pmanReference Special
 hi def link pmanArgsRef Special
+hi def link pmanBuiltinRef Special
 hi def link pmanOperator Operator
 hi def link pmanComment Comment
 hi def link pmanTodo Todo
