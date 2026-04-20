@@ -34,5 +34,9 @@ Use your preferred plugin manager. For example, with
 [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 ```lua
-{ "wbbradley/nvim-procman", ft = "pman" }
+{ "wbbradley/nvim-procman" }
 ```
+
+**Note:** Do not use `ft = "pman"` for lazy loading — the tree-sitter parser
+registration in `plugin/treesitter.lua` must run at startup so that
+`:TSInstall procman` can find the parser.
