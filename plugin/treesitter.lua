@@ -11,16 +11,11 @@ vim.treesitter.language.register("procman", "pman")
 -- Register with nvim-treesitter so :TSInstall procman knows where to fetch
 -- the grammar from.
 local ok, parsers = pcall(require, "nvim-treesitter.parsers")
-if ok then
-  local parser_config = parsers.get_parser_configs()
-  if not parser_config.procman then
-    parser_config.procman = {
-      install_info = {
-        url = "https://github.com/wbbradley/tree-sitter-procman",
-        files = { "src/parser.c", "src/scanner.c" },
-        branch = "main",
-      },
-      filetype = "pman",
-    }
-  end
+if ok and not parsers.procman then
+  parsers.procman = {
+    install_info = {
+      url = "https://github.com/wbbradley/tree-sitter-procman",
+      branch = "main",
+    },
+  }
 end
